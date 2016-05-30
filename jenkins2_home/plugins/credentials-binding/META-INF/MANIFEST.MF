@@ -1,0 +1,22 @@
+Manifest-Version: 1.0
+Archiver-Version: Plexus Archiver
+Created-By: Apache Maven
+Built-By: jglick
+Build-Jdk: 1.8.0_66
+Extension-Name: credentials-binding
+Specification-Title: Allows credentials to be bound to environment var
+ iables for use from miscellaneous build steps.
+Implementation-Title: credentials-binding
+Implementation-Version: 1.7
+Group-Id: org.jenkins-ci.plugins
+Short-Name: credentials-binding
+Long-Name: Credentials Binding Plugin
+Url: http://wiki.jenkins-ci.org/display/JENKINS/Credentials+Binding+Pl
+ ugin
+Plugin-Version: 1.7
+Hudson-Version: 1.596.1
+Jenkins-Version: 1.596.1
+Plugin-Dependencies: credentials:1.23,plain-credentials:1.0,workflow-s
+ tep-api:1.7
+Plugin-Developers: 
+

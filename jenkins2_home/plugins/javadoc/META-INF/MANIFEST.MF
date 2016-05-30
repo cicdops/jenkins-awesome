@@ -1,0 +1,17 @@
+Manifest-Version: 1.0
+Archiver-Version: Plexus Archiver
+Created-By: Apache Maven
+Built-By: jglick
+Build-Jdk: 1.7.0_67
+Extension-Name: javadoc
+Implementation-Title: javadoc
+Implementation-Version: 1.3
+Group-Id: org.jenkins-ci.plugins
+Short-Name: javadoc
+Long-Name: Javadoc Plugin
+Url: http://wiki.jenkins-ci.org/display/JENKINS/Javadoc+Plugin
+Plugin-Version: 1.3
+Hudson-Version: 1.577
+Jenkins-Version: 1.577
+Plugin-Developers: 
+
