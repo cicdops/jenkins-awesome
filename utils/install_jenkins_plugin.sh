@@ -1,4 +1,5 @@
 #!/bin/bash
+# get from https://gist.github.com/chuxau/6bc42f0f271704cd4e91
 
 set -e
 
