@@ -1,7 +1,4 @@
 
-download:
-http://mirrors.jenkins-ci.org/war/2.7/jenkins.war
-
-start jenkinks: ./jenkins2.sh
+start jenkinks: ./jenkins.sh
 
 login: admin/admin
