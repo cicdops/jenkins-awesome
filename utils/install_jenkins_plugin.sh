@@ -4,6 +4,7 @@
 set -e
 
 UPDATES_URL="http://updates.jenkins-ci.org/download/plugins/"
+#UPDATES_RUL="http://mirrors.jenkins-ci.org/plugins/"
 
 if [ $# -lt 2 ]; then
   echo "USAGE: $0 plugin-list-file destination-directory"
