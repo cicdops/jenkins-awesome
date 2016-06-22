@@ -1,0 +1,21 @@
+pre {
+	margin: 0;
+	white-space: pre-wrap;
+}
+
+td.lineNum {
+	padding-left: 1em;
+	padding-right: .5em
+}
+
+td.skipping {
+	background-color: #EAF2F5;
+}
+
+td.diff_original {
+	background-color: #FF8C8C;
+}
+
+td.diff_revised {
+	background-color: #CCCCFF;
+}

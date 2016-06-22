@@ -1,0 +1,18 @@
+Manifest-Version: 1.0
+Archiver-Version: Plexus Archiver
+Created-By: Apache Maven
+Built-By: tfennelly
+Build-Jdk: 1.7.0_51
+Extension-Name: mailer
+Implementation-Title: mailer
+Implementation-Version: 1.13
+Plugin-Class: hudson.tasks.PluginImpl
+Group-Id: org.jenkins-ci.plugins
+Short-Name: mailer
+Long-Name: Jenkins Mailer Plugin
+Url: http://wiki.jenkins-ci.org/display/JENKINS/Mailer
+Plugin-Version: 1.13
+Hudson-Version: 1.577
+Jenkins-Version: 1.577
+Plugin-Developers: 
+
