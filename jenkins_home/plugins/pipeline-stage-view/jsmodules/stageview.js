@@ -3911,9 +3911,9 @@ exports.jenkinsAjaxPOSTURLEncoded = function (path, parameters, success) {
  */
 
 var KB = 1024;
-var MB = KB * 1000;
-var GB = MB * 1000;
-var TB = GB * 1000;
+var MB = KB * 1024;
+var GB = MB * 1024;
+var TB = GB * 1024;
 
 var sec = 1000;
 var min = sec * 60;
@@ -4591,6 +4591,7 @@ var jqProxy = require('../jQuery');
 exports.render = function (message, onElement) {
     var $ = jqProxy.getJQuery();
     $('div#side-panel').remove();
+    $('div#main-panel').addClass("fullscreen");
 }
 
 },{"../jQuery":25}],49:[function(require,module,exports){
@@ -4820,6 +4821,8 @@ exports.render = function (stageDescription, onElement) {
     onElement.on(clickNSEvent, function() {
         dialog.show('Stage Logs (' + stageDescription.name + ')', stageLogsDom, {
             classes: 'cbwf-stage-logs-dialog',
+            placement: 'window-visible-top',
+            onElement: onElement,
             width: dialogWidth,
             height: dialogHeight,
             onshow: function() {
@@ -5724,7 +5727,9 @@ exports.show = function(title, body, options) {
     bodyEl.append(body);
 
     options.modal = true;
-    var popover = popoverWidget.newPopover(title, dialog, undefined, options);
+    // Undefined for the onElement makes it in the window center, otherwise it needs it for positioning
+    var popover = popoverWidget.newPopover(title, dialog, options.onElement, options);
+
     popover.show();
     if (options.onshow) {
         options.onshow();
@@ -6095,6 +6100,20 @@ Popover.prototype.applyPlacement = function() {
         // try not have the top of the dialog further down from the
         // top thn 1/4 the window height.
         topPlacement = Math.min(topPlacement, (winWidth / 4));
+
+        thisPopover.popover.css({
+            'top': topPlacement,
+            'left': leftPlacement
+        });
+    } else if (placement === 'window-visible-top') { // Centered at top of visible window
+        var winWidth = $(theWindow).width();
+        var popoverWidth = thisPopover.popover.width();
+        var leftPlacement = ((winWidth - popoverWidth) / 2);
+
+        var topPlacement = 20;  // For tests, which don't have a window
+        if (typeof window !== 'undefined') {
+            topPlacement = window.scrollY + 20;
+        }
 
         thisPopover.popover.css({
             'top': topPlacement,
