@@ -1,0 +1,26 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<flow-definition plugin="workflow-job@2.3">
+  <actions/>
+  <description></description>
+  <keepDependencies>false</keepDependencies>
+  <properties/>
+  <definition class="org.jenkinsci.plugins.workflow.cps.CpsFlowDefinition" plugin="workflow-cps@2.6">
+    <script>stage &apos;prepare&apos;
+node{sh &quot;mvn -v&quot;}
+
+
+
+
+node {
+    stage &apos;build&apos; 
+    git &apos;https://github.com/ciandcd/JavaHelloWorld.git&apos; 
+    sh &quot;mvn -B clean package&quot;
+    stage &apos;test&apos; 
+    sh &quot;mvn -B test&quot;
+}
+
+</script>
+    <sandbox>true</sandbox>
+  </definition>
+  <triggers/>
+</flow-definition>
