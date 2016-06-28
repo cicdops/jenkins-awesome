@@ -8,15 +8,12 @@
     <script>stage &apos;prepare&apos;
 node{sh &quot;mvn -v&quot;}
 
-
-
-
 node {
     stage &apos;build&apos; 
     git &apos;https://github.com/ciandcd/JavaHelloWorld.git&apos; 
-    sh &quot;mvn -B clean package&quot;
+    sh &quot;mvn clean package&quot;
     stage &apos;test&apos; 
-    sh &quot;mvn -B test&quot;
+    sh &quot;mvn test&quot;
 }
 
 </script>
