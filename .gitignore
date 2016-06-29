@@ -63,3 +63,4 @@ target/
 
 jenkins_home/jobs/*/builds/
 jenkins_home/logs/
+jenkins_home/jobs/javahelloworld/
