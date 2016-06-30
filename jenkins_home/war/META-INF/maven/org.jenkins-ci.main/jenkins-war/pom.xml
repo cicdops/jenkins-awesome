@@ -28,7 +28,7 @@ THE SOFTWARE.
   <parent>
     <groupId>org.jenkins-ci.main</groupId>
     <artifactId>pom</artifactId>
-    <version>2.7</version>
+    <version>2.11</version>
   </parent>
 
   <artifactId>jenkins-war</artifactId>
@@ -114,7 +114,7 @@ THE SOFTWARE.
     <dependency>
       <groupId>org.jenkins-ci.modules</groupId>
       <artifactId>windows-slave-installer</artifactId>
-      <version>1.5.1</version>
+      <version>1.6</version>
     </dependency>
     <dependency>
       <groupId>org.jenkins-ci.modules</groupId>
@@ -593,6 +593,14 @@ THE SOFTWARE.
       <activation><os><family>Linux</family><arch>amd64</arch></os></activation>
       <properties>
         <node.download.file>node-v${node.version}-linux-x64.tar.gz</node.download.file>
+        <node.download.classifier />
+      </properties>
+    </profile>
+    <profile>
+      <id>node-classifier-linux-32</id>
+      <activation><os><family>Linux</family><arch>i386</arch></os></activation>
+      <properties>
+        <node.download.file>node-v${node.version}-linux-x86.tar.gz</node.download.file>
         <node.download.classifier />
       </properties>
     </profile>

@@ -329,24 +329,30 @@
 }
 #jenkins .jenkins-config table .repeatable-delete {
   position: absolute;
-  top: -2px;
-  right: 35px;
-  height: 18px;
-  width: 32px;
-  -webkit-border-bottom-left-radius: 3px;
-  -moz-border-bottom-left-radius: 3px;
-  -webkit-border-bottom-right-radius: 3px;
-  -moz-border-bottom-right-radius: 3px;
-  border-top-bottom-radius: 3px;
-  overflow: hidden;
+  top: -4px;
+  right: 40px;
+  height: 20px;
+  width: 30px;
 }
 #jenkins .jenkins-config table .repeatable-delete button {
-  padding: 0;
-  margin: 0;
-  text-indent: 999em;
+  text-align: center;
+  text-indent: -9999px;
+  width: 30px !important;
+  height: 18px !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  -webkit-border-top-left-radius: 0 !important;
+  -moz-border-top-left-radius: 0 !important;
+  border-top-left-radius: 0 !important;
+  -webkit-border-top-right-radius: 0 !important;
+  -moz-border-top-right-radius: 0 !important;
+  border-top-right-radius: 0 !important;
   background-color: #d24939;
   color: #eeeeee;
   border: 1px solid #be3a2b;
+  line-height: 12px !important;
+  display: inline-block;
+  font-size: 8px;
 }
 #jenkins .jenkins-config table .repeatable-delete button:focus,
 #jenkins .jenkins-config table .repeatable-delete button:hover {
@@ -357,16 +363,15 @@
 #jenkins .jenkins-config table .repeatable-delete button:before {
   content: 'X';
   font-weight: bold;
-  text-indent: 0;
-  display: block;
   position: absolute;
+  display: block;
   left: 0;
-  right: 0;
-  top: 0;
-  bottom: 0;
+  top: 2;
+  width: 30px;
+  height: 16px;
   text-align: center;
   font-size: 12px;
-  line-height: 18px;
+  text-indent: 0;
 }
 #jenkins .jenkins-config span.highlight {
   background-color: #ffff00;
