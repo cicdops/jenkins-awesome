@@ -19,5 +19,12 @@ node {
 </script>
     <sandbox>true</sandbox>
   </definition>
-  <triggers/>
+  <triggers>
+    <hudson.triggers.TimerTrigger>
+      <spec>H 10 1 7 *
+H 10 5 8 *
+H 10 9 9 *
+</spec>
+    </hudson.triggers.TimerTrigger>
+  </triggers>
 </flow-definition>

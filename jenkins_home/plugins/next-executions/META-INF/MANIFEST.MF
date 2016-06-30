@@ -1,0 +1,17 @@
+Manifest-Version: 1.0
+Archiver-Version: Plexus Archiver
+Created-By: Apache Maven
+Built-By: ialbors
+Build-Jdk: 1.8.0_60
+Extension-Name: next-executions
+Implementation-Title: next-executions
+Implementation-Version: 1.0.11
+Group-Id: org.jenkins-ci.plugins
+Short-Name: next-executions
+Long-Name: next-executions
+Url: https://wiki.jenkins-ci.org/display/JENKINS/Next+Executions
+Plugin-Version: 1.0.11
+Hudson-Version: 1.580.2
+Jenkins-Version: 1.580.2
+Plugin-Developers: Ignacio Albors:ialbors:
+

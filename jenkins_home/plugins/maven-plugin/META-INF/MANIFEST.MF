@@ -1,24 +1,24 @@
 Manifest-Version: 1.0
 Archiver-Version: Plexus Archiver
 Created-By: Apache Maven
-Built-By: kutzi
-Build-Jdk: 1.6.0_45
+Built-By: olamy
+Build-Jdk: 1.8.0_51
 Extension-Name: maven-plugin
 Specification-Title: This plug-in provides deep integration of Jenkins
   and Maven. This functionality used to be part of the Jenkins core.
    Now it is a plug-in that is installed by default, but can be disabl
  ed.
 Implementation-Title: maven-plugin
-Implementation-Version: 2.0
+Implementation-Version: 2.13
 Plugin-Class: hudson.maven.PluginImpl
 Group-Id: org.jenkins-ci.main
 Short-Name: maven-plugin
 Long-Name: Maven Integration plugin
 Url: http://wiki.jenkins-ci.org/display/JENKINS/Maven+Project+Plugin
-Plugin-Version: 2.0
-Hudson-Version: 1.532
-Jenkins-Version: 1.532
-Plugin-Dependencies: token-macro:1.1;resolution:=optional,mailer:1.5,j
- avadoc:1.0
+Plugin-Version: 2.13
+Hudson-Version: 1.580.1
+Jenkins-Version: 1.580.1
+Plugin-Dependencies: junit:1.6,token-macro:1.1;resolution:=optional,ja
+ vadoc:1.0,mailer:1.7
 Plugin-Developers: 
 

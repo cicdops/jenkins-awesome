@@ -1,0 +1,15 @@
+<div>
+  If checked, Jenkins will schedule build even if some upstream project has no successful builds.
+  If not checked, Jenkins will not schedule build when some SNAPSHOT if any other
+  upstream project has no successful builds on this Jenkins.
+
+  <p>
+  This is convenient for automatically performing continuous integration when project has many upstreams
+  and broking of one prevents from triggering the build of a downstream even when other upstream has been built
+  successfuly. Jenkins may have no knowledge about successful builds for some upstream if builds were cleaned up
+  or was not performed after restarts or upgrades. At the same time this project can be build because
+  the upstream artifacts are present in MAVEN repository.
+
+  <p>
+  This behaviour may trigger extra builds. If this behavior is problematic, uncheck this option.
+</div>

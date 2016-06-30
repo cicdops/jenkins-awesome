@@ -3,12 +3,14 @@
   <parent>
     <groupId>org.jenkins-ci.plugins</groupId>
     <artifactId>plugin</artifactId>
-    <version>1.577</version>
+    <version>2.7</version>
   </parent>
+  
   <artifactId>mailer</artifactId>
   <packaging>hpi</packaging>
-  <version>1.13</version>
+  <version>1.17</version>
   <name>Jenkins Mailer Plugin</name>
+  
   <url>http://wiki.jenkins-ci.org/display/JENKINS/Mailer</url>
   <licenses>
     <license>
@@ -18,16 +20,11 @@
     </license>
   </licenses>
   <properties>
-    <powermock.version>1.4.12</powermock.version>
-    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <powermock.version>1.6.2</powermock.version>
+    <jenkins.version>1.580.1</jenkins.version>
+    <java.level>6</java.level>
   </properties>
   <dependencies>
-    <dependency>
-      <groupId>javax.servlet</groupId>
-      <artifactId>servlet-api</artifactId>
-      <version>2.4</version>
-      <scope>provided</scope>
-    </dependency>
     <dependency>
       <groupId>javax.mail</groupId>
       <artifactId>mail</artifactId>
@@ -55,7 +52,7 @@
     <dependency>
       <groupId>org.mockito</groupId>
       <artifactId>mockito-all</artifactId>
-      <version>1.8.5</version>
+      <version>1.10.19</version>
       <scope>test</scope>
     </dependency>
     <dependency>
@@ -80,7 +77,7 @@
   <scm>
     <connection>scm:git:git://github.com/jenkinsci/${project.artifactId}-plugin.git</connection>
     <developerConnection>scm:git:git@github.com:jenkinsci/${project.artifactId}-plugin.git</developerConnection>
-    <tag>mailer-1.13</tag>
+    <tag>mailer-1.17</tag>
   </scm>
   <repositories>
     <repository>

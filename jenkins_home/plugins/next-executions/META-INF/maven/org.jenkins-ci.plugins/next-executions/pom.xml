@@ -1,0 +1,55 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>org.jenkins-ci.plugins</groupId>
+		<artifactId>plugin</artifactId>
+		<version>1.580.2</version>
+		<!--
+			which version of Hudson is this plugin built against?
+		-->
+		<relativePath>../pom.xml</relativePath>
+	</parent>
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
+	<scm>
+		<connection>scm:git:ssh://github.com/jenkinsci/next-executions-plugin.git</connection>
+		<developerConnection>scm:git:ssh://git@github.com/jenkinsci/next-executions-plugin.git</developerConnection>
+		<url>https://github.com/jenkinsci/next-executions-plugin.git</url>
+	  <tag>next-executions-1.0.11</tag>
+  </scm>
+	<url>https://wiki.jenkins-ci.org/display/JENKINS/Next+Executions</url>
+
+	<developers>
+		<developer>
+			<id>ialbors</id>
+			<name>Ignacio Albors</name>
+		</developer>
+	</developers>
+
+	<artifactId>next-executions</artifactId>
+	<version>1.0.11</version>
+	<packaging>hpi</packaging>
+
+	<repositories>
+    		<repository>
+      			<id>repo.jenkins-ci.org</id>
+      			<url>http://repo.jenkins-ci.org/public/</url>
+    		</repository>
+  	</repositories>
+
+    <pluginRepositories>
+        <pluginRepository>
+            <id>repo.jenkins-ci.org</id>
+            <url>http://repo.jenkins-ci.org/public/</url>
+        </pluginRepository>
+    </pluginRepositories>
+    <dependencies>
+      <dependency>
+        <groupId>joda-time</groupId>
+        <artifactId>joda-time</artifactId>
+        <version>2.3</version>
+      </dependency>
+    </dependencies>                      
+</project>  
+

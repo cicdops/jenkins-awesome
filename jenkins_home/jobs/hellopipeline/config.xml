@@ -23,5 +23,9 @@
 }</script>
     <sandbox>true</sandbox>
   </definition>
-  <triggers/>
+  <triggers>
+    <hudson.triggers.TimerTrigger>
+      <spec>0 0 * * *</spec>
+    </hudson.triggers.TimerTrigger>
+  </triggers>
 </flow-definition>

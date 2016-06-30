@@ -29,12 +29,12 @@ THE SOFTWARE.
   <parent>
     <groupId>org.jenkins-ci.plugins</groupId>
     <artifactId>plugin</artifactId>
-    <version>1.532</version>
+    <version>2.9</version>
   </parent>
 
   <groupId>org.jenkins-ci.main</groupId><!-- for historical reason, this plugin has a different groupId -->
   <artifactId>maven-plugin</artifactId><!-- for the same reason, artifactId is against the convention -->
-  <version>2.0</version>
+  <version>2.13</version>
   <packaging>hpi</packaging>
 
   <name>Maven Integration plugin</name>
@@ -43,20 +43,51 @@ THE SOFTWARE.
   <url>http://wiki.jenkins-ci.org/display/JENKINS/Maven+Project+Plugin</url>
 
   <properties>
-    <mavenInterceptorsVersion>1.4</mavenInterceptorsVersion>
+    <jenkins.version>1.580.1</jenkins.version>
+    <java.level>6</java.level>
+    <mavenInterceptorsVersion>1.7</mavenInterceptorsVersion>  
     <mavenVersion>3.1.0</mavenVersion>
     <maven.version>${mavenVersion}</maven.version>
     <aetherVersion>0.9.0.M3</aetherVersion>
     <sisuInjectVersion>0.0.0.M5</sisuInjectVersion>
     <wagonVersion>2.4</wagonVersion>
+    <!--TODO: change to true after the code cleanup-->
+    <findbugs.failOnError>false</findbugs.failOnError>
+    <!-- well the parent pom could defined an empty one instead of causing failure!! -->
+    <argLine />
   </properties>
 
   <issueManagement>
     <system>jira</system>
     <url>https://issues.jenkins-ci.org/browse/JENKINS/component/15487</url>
   </issueManagement>
-
+  <licenses>
+    <license>
+      <name>MIT License</name>
+      <url>http://www.opensource.org/licenses/mit-license.php</url>
+    </license>
+  </licenses>
+  
+  <dependencyManagement>
+    <dependencies>
+      <!-- Newer version of plexus-utils is required for artifact deployment to 
+           work using scpexe wagon (see JENKINS-4861). This may be removed when
+           the effective version of the transitive plexus-utils dependency is 3.0.16+. -->
+      <dependency>
+        <groupId>org.codehaus.plexus</groupId>
+        <artifactId>plexus-utils</artifactId>
+        <version>3.0.17</version>
+      </dependency>
+    </dependencies>
+  </dependencyManagement>
+  
   <dependencies>
+    <dependency> <!-- TODO pending https://github.com/jenkinsci/plugin-pom/pull/17 -->
+      <groupId>javax.servlet</groupId>
+      <artifactId>javax.servlet-api</artifactId>
+      <version>3.1.0</version>
+      <scope>test</scope>
+    </dependency>
     <dependency>
       <groupId>org.jenkins-ci.plugins</groupId>
       <artifactId>javadoc</artifactId>
@@ -65,13 +96,12 @@ THE SOFTWARE.
     <dependency>
       <groupId>org.jenkins-ci.plugins</groupId>
       <artifactId>mailer</artifactId>
-      <version>1.5</version>
+      <version>1.7</version>
     </dependency>
     <dependency>
-      <groupId>javax.servlet</groupId>
-      <artifactId>servlet-api</artifactId>
-      <version>2.4</version>
-      <scope>provided</scope>
+      <groupId>org.jenkins-ci.plugins</groupId>
+      <artifactId>junit</artifactId>
+      <version>1.6</version>
     </dependency>
     
     <dependency>
@@ -124,6 +154,11 @@ THE SOFTWARE.
       <artifactId>maven31-agent</artifactId>
       <version>${mavenInterceptorsVersion}</version>
     </dependency>
+    <dependency>
+      <groupId>org.jenkins-ci.main.maven</groupId>
+      <artifactId>maven32-agent</artifactId>
+      <version>${mavenInterceptorsVersion}</version>
+    </dependency>
     
     <dependency>
       <groupId>org.jenkins-ci.main.maven</groupId>
@@ -143,6 +178,11 @@ THE SOFTWARE.
     <dependency>
       <groupId>org.jenkins-ci.main.maven</groupId>
       <artifactId>maven31-interceptor</artifactId>
+      <version>${mavenInterceptorsVersion}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.jenkins-ci.main.maven</groupId>
+      <artifactId>maven32-interceptor</artifactId>
       <version>${mavenInterceptorsVersion}</version>
     </dependency>
     <dependency>
@@ -247,16 +287,22 @@ THE SOFTWARE.
       <groupId>org.apache.maven.wagon</groupId>
       <artifactId>wagon-http</artifactId>
       <version>${wagonVersion}</version>
+      <exclusions>
+        <exclusion>
+          <groupId>commons-io</groupId>
+          <artifactId>commons-io</artifactId>
+        </exclusion>
+      </exclusions>
     </dependency>
     <dependency>
       <groupId>org.apache.httpcomponents</groupId>
       <artifactId>httpclient</artifactId>
-      <version>4.2.5</version>
+      <version>4.5.1</version>
     </dependency>
     <dependency>
       <groupId>org.apache.httpcomponents</groupId>
       <artifactId>httpcore</artifactId>
-      <version>4.2.4</version>
+      <version>4.4.3</version>
     </dependency>
     <dependency>
       <groupId>org.apache.maven.wagon</groupId>
@@ -267,7 +313,7 @@ THE SOFTWARE.
       <groupId>org.apache.maven.wagon</groupId>
       <artifactId>wagon-ftp</artifactId>
       <version>${wagonVersion}</version>
-    </dependency>        
+    </dependency>
     <dependency>
       <groupId>org.apache.maven.wagon</groupId>
       <artifactId>wagon-ssh</artifactId>
@@ -277,28 +323,28 @@ THE SOFTWARE.
       <groupId>org.apache.maven.wagon</groupId>
       <artifactId>wagon-ssh-external</artifactId>
       <version>${wagonVersion}</version>
-    </dependency>    
+    </dependency>
 
     <dependency>
       <groupId>org.apache.maven.wagon</groupId>
       <artifactId>wagon-provider-api</artifactId>
       <version>${wagonVersion}</version>
-    </dependency>    
+    </dependency>
     <dependency>
       <groupId>org.apache.maven.reporting</groupId>
       <artifactId>maven-reporting-api</artifactId>
       <version>3.0</version>
-    </dependency>  
+    </dependency>
     <dependency>
       <groupId>org.codehaus.plexus</groupId>
       <artifactId>plexus-classworlds</artifactId>
       <version>2.5.1</version>
-    </dependency>  
+    </dependency>
     <dependency>
       <groupId>org.jenkins-ci.lib</groupId>
       <artifactId>lib-jenkins-maven-artifact-manager</artifactId>
       <version>1.2</version>
-    </dependency>                
+    </dependency>
     <dependency>
       <groupId>org.jenkins-ci.lib</groupId>
       <artifactId>lib-jenkins-maven-embedder</artifactId>
@@ -343,6 +389,10 @@ THE SOFTWARE.
           <groupId>nekohtml</groupId>
           <artifactId>xercesMinimal</artifactId>
         </exclusion>
+        <exclusion>
+          <groupId>commons-io</groupId>
+          <artifactId>commons-io</artifactId>
+        </exclusion>
       </exclusions>
     </dependency>
 
@@ -354,16 +404,9 @@ THE SOFTWARE.
     </dependency>
 
     <dependency>
-      <groupId>findbugs</groupId>
-      <artifactId>annotations</artifactId>
-      <version>1.0.0</version>
-      <scope>provided</scope>
-    </dependency>
-    
-    <dependency>
-      <groupId>junit</groupId>
-      <artifactId>junit</artifactId>
-      <version>4.11</version>
+      <groupId>org.jenkins-ci.main</groupId>
+      <artifactId>jenkins-test-harness-tools</artifactId>
+      <version>2.0</version>
       <scope>test</scope>
     </dependency>
     <dependency>
@@ -371,17 +414,35 @@ THE SOFTWARE.
       <artifactId>mockito-core</artifactId>
       <version>1.8.5</version>
       <scope>test</scope>
+      <exclusions>
+        <exclusion>
+          <groupId>org.hamcrest</groupId>
+          <artifactId>hamcrest-core</artifactId>
+        </exclusion>
+      </exclusions>
     </dependency>
     <dependency>
       <groupId>org.powermock</groupId>
       <artifactId>powermock-module-junit4</artifactId>
-      <version>1.4.10</version>
+      <version>1.6.4</version>
       <scope>test</scope>
     </dependency>
     <dependency>
       <groupId>org.powermock</groupId>
       <artifactId>powermock-api-mockito</artifactId>
-      <version>1.4.10</version>
+      <version>1.6.4</version>
+      <scope>test</scope>
+      <exclusions>
+        <exclusion>
+          <groupId>org.mockito</groupId>
+          <artifactId>mockito-all</artifactId>
+        </exclusion>
+      </exclusions>
+    </dependency>
+    <dependency>
+      <groupId>org.jvnet.mock-javamail</groupId>
+      <artifactId>mock-javamail</artifactId>
+      <version>1.9</version>
       <scope>test</scope>
     </dependency>
     <dependency>
@@ -396,55 +457,29 @@ THE SOFTWARE.
       <version>1.0</version>
       <scope>test</scope>
     </dependency>
+    <dependency>
+      <groupId>org.jenkins-ci.plugins</groupId>
+      <artifactId>promoted-builds</artifactId>
+      <version>2.23</version>
+      <scope>test</scope>
+    </dependency>
   </dependencies>
 
   <build>
-    <!--
-      Since new versions need to overwrite old versions, it's better
-      not to have version number in the .hpi file name.
-    -->
-    <finalName>${project.artifactId}</finalName>
+    <pluginManagement>
+      <plugins>
+        <plugin>
+          <artifactId>maven-surefire-plugin</artifactId>
+          <configuration>
+            <!-- now defined in parent pom -->
+            <!-- Prevent the annoying ForkedBooter process from stealing window focus on Mac OS -->
+            <!-- Must be defined as argLine and not as system property to be used -->
+            <!--argLine>-Djava.awt.headless=true</argLine-->
+          </configuration>
+        </plugin>
+      </plugins>
+    </pluginManagement>
     <plugins>
-      <plugin>
-        <groupId>org.jenkins-ci.tools</groupId>
-        <artifactId>maven-hpi-plugin</artifactId>
-        <!-- version specified in grandparent pom -->
-        <extensions>true</extensions>
-        <configuration>
-          <showDeprecation>true</showDeprecation>
-          <disabledTestInjection>true</disabledTestInjection>
-        </configuration>
-      </plugin>
-      <plugin>
-        <groupId>org.kohsuke.stapler</groupId>
-        <artifactId>maven-stapler-plugin</artifactId>
-        <!-- version specified in grandparent pom -->
-        <extensions>true</extensions>
-      </plugin>
-      <plugin>
-        <groupId>org.jvnet.localizer</groupId>
-        <artifactId>maven-localizer-plugin</artifactId>
-        <!-- version specified in grandparent pom -->
-        <executions>
-          <execution>
-            <goals>
-              <goal>generate</goal>
-            </goals>
-              <configuration>
-              <fileMask>Messages.properties</fileMask>
-              <outputDirectory>target/generated-sources/localizer</outputDirectory>
-            </configuration>
-          </execution>
-        </executions>
-      </plugin>
-      <plugin><!-- generate licenses.xml -->
-        <groupId>com.cloudbees</groupId>
-        <artifactId>maven-license-plugin</artifactId>
-        <!-- version specified in grandparent pom -->
-        <configuration>
-          <generateLicenseXml>target/${project.artifactId}/WEB-INF/licenses.xml</generateLicenseXml>
-        </configuration>
-      </plugin>
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-dependency-plugin</artifactId>
@@ -472,59 +507,9 @@ THE SOFTWARE.
           </execution>
         </executions>
       </plugin>
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-surefire-plugin</artifactId>
-        <configuration>
-          <argLine>-XX:MaxPermSize=128m</argLine>
-          <systemPropertyVariables>
-              <buildDirectory>${project.build.directory}</buildDirectory>
-              <java.io.tmpdir>${project.build.directory}</java.io.tmpdir>
-              <java.awt.headless>true</java.awt.headless>
-          </systemPropertyVariables>
-        </configuration>
-      </plugin>
     </plugins>
   </build>
 
-  <profiles>
-    
-  <profile>
-    <id>cobertura2</id>
-    <build>
-      <plugins>
-        <plugin>
-          <groupId>org.codehaus.mojo</groupId>
-          <artifactId>cobertura-maven-plugin</artifactId>
-          <!-- version specified in grandparent pom -->
-          <inherited>true</inherited>
-          <configuration>
-            <formats>
-              <format>html</format>
-              <format>xml</format>
-            </formats>
-          </configuration>
-          <executions>
-            <execution>
-              <id>coverage-instrument</id>
-              <phase>process-test-classes</phase>
-              <goals>
-                <goal>instrument</goal>
-              </goals>
-            </execution>
-            <execution>
-              <id>coverage-report</id>
-              <phase>test</phase>
-              <goals>
-                <goal>generate-report</goal>
-              </goals>
-            </execution>
-          </executions>
-        </plugin>
-      </plugins>
-    </build>
-  </profile>
-  </profiles>
 
   <repositories>
     <repository>
@@ -543,6 +528,7 @@ THE SOFTWARE.
     <connection>scm:git:git://github.com/jenkinsci/maven-plugin.git</connection>
     <developerConnection>scm:git:git@github.com:jenkinsci/maven-plugin.git</developerConnection>
     <url>http://github.com/jenkinsci/maven-plugin</url>
+    <tag>maven-plugin-2.13</tag>
   </scm>
 
 </project>
