@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<l:dependencies xmlns:l='licenses' groupId='org.jenkins-ci.plugins' artifactId='run-condition' version='1.0'><l:dependency name='Run Condition Plugin' groupId='org.jenkins-ci.plugins' artifactId='run-condition' version='1.0' url='http://wiki.jenkins-ci.org/display/JENKINS/Run+Condition+Plugin'><l:description>Define conditions for the execution of build steps</l:description><l:license name='The MIT license' url=''/></l:dependency></l:dependencies>

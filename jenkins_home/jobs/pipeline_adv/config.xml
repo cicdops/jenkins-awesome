@@ -1,0 +1,46 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<flow-definition plugin="workflow-job@2.3">
+  <actions/>
+  <description></description>
+  <keepDependencies>false</keepDependencies>
+  <properties/>
+  <definition class="org.jenkinsci.plugins.workflow.cps.CpsFlowDefinition" plugin="workflow-cps@2.6">
+    <script>node(&apos;remote&apos;) {
+  git url: &apos;https://github.com/jglick/simple-maven-project-with-tests.git&apos;
+  def v = version()
+  if (v) {
+    echo &quot;Building version ${v}&quot;
+  }
+  def mvnHome = tool &apos;M3&apos;
+  sh &quot;${mvnHome}/bin/mvn -B -Dmaven.test.failure.ignore verify&quot;
+  step([$class: &apos;ArtifactArchiver&apos;, artifacts: &apos;**/target/*.jar&apos;, fingerprint: true])
+  step([$class: &apos;JUnitResultArchiver&apos;, testResults: &apos;**/target/surefire-reports/TEST-*.xml&apos;])
+}
+def version() {
+  def matcher = readFile(&apos;pom.xml&apos;) =~ &apos;&lt;version&gt;(.+)&lt;/version&gt;&apos;
+  matcher ? matcher[0][1] : null
+}
+
+node(&apos;remote&apos;) {
+  git url: &apos;https://github.com/jenkinsci/parallel-test-executor-plugin-sample.git&apos;
+  archive &apos;pom.xml, src/&apos;
+}
+def splits = splitTests([$class: &apos;CountDrivenParallelism&apos;, size: 2])
+def branches = [:]
+for (int i = 0; i &lt; splits.size(); i++) {
+  def exclusions = splits.get(i);
+  branches[&quot;split${i}&quot;] = {
+    node(&apos;remote&apos;) {
+      sh &apos;rm -rf *&apos;
+      unarchive mapping: [&apos;pom.xml&apos; : &apos;.&apos;, &apos;src/&apos; : &apos;.&apos;]
+      writeFile file: &apos;exclusions.txt&apos;, text: exclusions.join(&quot;\n&quot;)
+      sh &quot;${tool &apos;M3&apos;}/bin/mvn -B -Dmaven.test.failure.ignore test&quot;
+      step([$class: &apos;JUnitResultArchiver&apos;, testResults: &apos;target/surefire-reports/*.xml&apos;])
+    }
+  }
+}
+parallel branches</script>
+    <sandbox>true</sandbox>
+  </definition>
+  <triggers/>
+</flow-definition>

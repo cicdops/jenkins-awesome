@@ -1,0 +1,20 @@
+Manifest-Version: 1.0
+Archiver-Version: Plexus Archiver
+Created-By: Apache Maven
+Built-By: discus
+Build-Jdk: 1.6.0_51
+Extension-Name: run-condition
+Specification-Title: Define conditions for the execution of build steps
+Implementation-Title: run-condition
+Implementation-Version: 1.0
+Plugin-Class: org.jenkins_ci.plugins.run_condition.RunConditionPlugin
+Group-Id: org.jenkins-ci.plugins
+Short-Name: run-condition
+Long-Name: Run Condition Plugin
+Url: http://wiki.jenkins-ci.org/display/JENKINS/Run+Condition+Plugin
+Plugin-Version: 1.0
+Hudson-Version: 1.424
+Jenkins-Version: 1.424
+Plugin-Dependencies: token-macro:1.5.1
+Plugin-Developers: Bap:bap:bap-jenkins@BapIT.co.uk
+

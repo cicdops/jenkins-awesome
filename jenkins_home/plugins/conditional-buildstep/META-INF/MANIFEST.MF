@@ -1,0 +1,23 @@
+Manifest-Version: 1.0
+Archiver-Version: Plexus Archiver
+Created-By: Apache Maven
+Built-By: domi
+Build-Jdk: 1.8.0_45
+Extension-Name: conditional-buildstep
+Specification-Title: A buildstep wrapping any number of other buildste
+ ps, controlling there execution based on a defined condition.
+Implementation-Title: conditional-buildstep
+Implementation-Version: 1.3.5
+Group-Id: org.jenkins-ci.plugins
+Short-Name: conditional-buildstep
+Long-Name: Conditional BuildStep
+Url: https://wiki.jenkins-ci.org/display/JENKINS/Conditional+BuildStep
+ +Plugin
+Plugin-Version: 1.3.5
+Hudson-Version: 1.580.1
+Jenkins-Version: 1.580.1
+Plugin-Dependencies: maven-plugin:2.8,token-macro:1.5.1,matrix-project
+ :1.0-beta-1,run-condition:1.0
+Plugin-Developers: Dominik Bartholdi:imod:,Bap:bap:bap-jenkins@BapIT.c
+ o.uk
+

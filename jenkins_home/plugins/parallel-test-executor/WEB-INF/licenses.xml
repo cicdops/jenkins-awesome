@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<l:dependencies xmlns:l='licenses' groupId='org.jenkins-ci.plugins' artifactId='parallel-test-executor' version='1.8'><l:dependency name='Jenkins Parallel Test Executor Plugin' groupId='org.jenkins-ci.plugins' artifactId='parallel-test-executor' version='1.8' url='http://wiki.jenkins-ci.org/display/JENKINS/Parallel+Test+Executor+Plugin'><l:description/></l:dependency></l:dependencies>
