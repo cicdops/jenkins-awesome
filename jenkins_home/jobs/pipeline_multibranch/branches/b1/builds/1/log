@@ -1,0 +1,96 @@
+Branch indexing
+Setting origin to https://github.com/ciandcd/example_jenkins_multibranch.git
+Fetching origin...
+Cloning the remote Git repository
+Cloning repository https://github.com/ciandcd/example_jenkins_multibranch.git
+ > git init /home/osboxes/github/jenkins-example/jenkins_home/jobs/pipeline_multibranch/branches/b1/workspace@script # timeout=10
+Fetching upstream changes from https://github.com/ciandcd/example_jenkins_multibranch.git
+ > git --version # timeout=10
+ > git -c core.askpass=true fetch --tags --progress https://github.com/ciandcd/example_jenkins_multibranch.git +refs/heads/*:refs/remotes/origin/*
+ > git config remote.origin.url https://github.com/ciandcd/example_jenkins_multibranch.git # timeout=10
+ > git config --add remote.origin.fetch +refs/heads/*:refs/remotes/origin/* # timeout=10
+ > git config remote.origin.url https://github.com/ciandcd/example_jenkins_multibranch.git # timeout=10
+Fetching upstream changes from https://github.com/ciandcd/example_jenkins_multibranch.git
+ > git -c core.askpass=true fetch --tags --progress https://github.com/ciandcd/example_jenkins_multibranch.git +refs/heads/*:refs/remotes/origin/*
+Checking out Revision 1c6fcd0a2ea1a1b1205aa08e330ae53063f062da (b1)
+ > git config core.sparsecheckout # timeout=10
+ > git checkout -f 1c6fcd0a2ea1a1b1205aa08e330ae53063f062da
+First time build. Skipping changelog.
+[8mha:AAAAaB+LCAAAAAAAAP9b85aBtbiIwTG/KF0vKzUvOzOvODlTryCnNB3I0ivPL8pOy8kv18vKT9JLzs8rzs9J1QuHCgaV5jlDhPzyS1IZIICRiYGhoohBKqM0pTg/D64Hh8ICAFt0h+h/AAAA[0m[Pipeline] node
+Running on master in /home/osboxes/github/jenkins-example/jenkins_home/jobs/pipeline_multibranch/branches/b1/workspace
+[8mha:AAAAaB+LCAAAAAAAAP9b85aBtbiIwTG/KF0vKzUvOzOvODlTryCnNB3I0ivPL8pOy8kv18vKT9JLzs8rzs9J1QuHCgaV5jlDhPzyS1IZIICRiYGhoohBKqM0pTg/D64Hh8ICAFt0h+h/AAAA[0m[Pipeline] {
+[8mha:AAAAaB+LCAAAAAAAAP9b85aBtbiIwTG/KF0vKzUvOzOvODlTryCnNB3I0ivPL8pOy8kv18vKT9JLzs8rzs9J1QuHCgaV5jlDhPzyS1IZIICRiYGhoohBKqM0pTg/D64Hh8ICAFt0h+h/AAAA[0m[Pipeline] stage (Build and Test)
+Entering stage Build and Test
+Proceeding
+[8mha:AAAAaB+LCAAAAAAAAP9b85aBtbiIwTG/KF0vKzUvOzOvODlTryCnNB3I0ivPL8pOy8kv18vKT9JLzs8rzs9J1QuHCgaV5jlDhPzyS1IZIICRiYGhoohBKqM0pTg/D64Hh8ICAFt0h+h/AAAA[0m[Pipeline] tool
+[8mha:AAAAaB+LCAAAAAAAAP9b85aBtbiIwTG/KF0vKzUvOzOvODlTryCnNB3I0ivPL8pOy8kv18vKT9JLzs8rzs9J1QuHCgaV5jlDhPzyS1IZIICRiYGhoohBKqM0pTg/D64Hh8ICAFt0h+h/AAAA[0m[Pipeline] checkout
+Cloning the remote Git repository
+Cloning repository https://github.com/ciandcd/example_jenkins_multibranch.git
+ > git init /home/osboxes/github/jenkins-example/jenkins_home/jobs/pipeline_multibranch/branches/b1/workspace # timeout=10
+Fetching upstream changes from https://github.com/ciandcd/example_jenkins_multibranch.git
+ > git --version # timeout=10
+ > git -c core.askpass=true fetch --tags --progress https://github.com/ciandcd/example_jenkins_multibranch.git +refs/heads/*:refs/remotes/origin/*
+ > git config remote.origin.url https://github.com/ciandcd/example_jenkins_multibranch.git # timeout=10
+ > git config --add remote.origin.fetch +refs/heads/*:refs/remotes/origin/* # timeout=10
+ > git config remote.origin.url https://github.com/ciandcd/example_jenkins_multibranch.git # timeout=10
+Fetching upstream changes from https://github.com/ciandcd/example_jenkins_multibranch.git
+ > git -c core.askpass=true fetch --tags --progress https://github.com/ciandcd/example_jenkins_multibranch.git +refs/heads/*:refs/remotes/origin/*
+Checking out Revision 1c6fcd0a2ea1a1b1205aa08e330ae53063f062da (b1)
+ > git config core.sparsecheckout # timeout=10
+ > git checkout -f 1c6fcd0a2ea1a1b1205aa08e330ae53063f062da
+[8mha:AAAAaB+LCAAAAAAAAP9b85aBtbiIwTG/KF0vKzUvOzOvODlTryCnNB3I0ivPL8pOy8kv18vKT9JLzs8rzs9J1QuHCgaV5jlDhPzyS1IZIICRiYGhoohBKqM0pTg/D64Hh8ICAFt0h+h/AAAA[0m[Pipeline] sh
+[workspace] Running shell script
++ mvn clean package
+[INFO] Scanning for projects...
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building simple-maven-project-with-tests 1.0-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-clean-plugin:2.5:clean (default-clean) @ simple-maven-project-with-tests ---
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ simple-maven-project-with-tests ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/osboxes/github/jenkins-example/jenkins_home/jobs/pipeline_multibranch/branches/b1/workspace/src/main/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.2:compile (default-compile) @ simple-maven-project-with-tests ---
+[INFO] No sources to compile
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ simple-maven-project-with-tests ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/osboxes/github/jenkins-example/jenkins_home/jobs/pipeline_multibranch/branches/b1/workspace/src/test/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.2:testCompile (default-testCompile) @ simple-maven-project-with-tests ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 3 source files to /home/osboxes/github/jenkins-example/jenkins_home/jobs/pipeline_multibranch/branches/b1/workspace/target/test-classes
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.18.1:test (default-test) @ simple-maven-project-with-tests ---
+[INFO] Surefire report directory: /home/osboxes/github/jenkins-example/jenkins_home/jobs/pipeline_multibranch/branches/b1/workspace/target/surefire-reports
+
+-------------------------------------------------------
+ T E S T S
+-------------------------------------------------------
+Running test.OtherTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.016 sec - in test.OtherTest
+Running test.SomeTest
+Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec - in test.SomeTest
+
+Results :
+
+Tests run: 7, Failures: 0, Errors: 0, Skipped: 0
+
+[INFO] 
+[INFO] --- maven-jar-plugin:2.4:jar (default-jar) @ simple-maven-project-with-tests ---
+[WARNING] JAR will be empty - no content was marked for inclusion!
+[INFO] Building jar: /home/osboxes/github/jenkins-example/jenkins_home/jobs/pipeline_multibranch/branches/b1/workspace/target/simple-maven-project-with-tests-1.0-SNAPSHOT.jar
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 10.126 s
+[INFO] Finished at: 2016-07-11T07:24:46+01:00
+[INFO] Final Memory: 14M/34M
+[INFO] ------------------------------------------------------------------------
+[8mha:AAAAaB+LCAAAAAAAAP9b85aBtbiIwTG/KF0vKzUvOzOvODlTryCnNB3I0ivPL8pOy8kv18vKT9JLzs8rzs9J1QuHCgaV5jlDhPzyS1IZIICRiYGhoohBKqM0pTg/D64Hh8ICAFt0h+h/AAAA[0m[Pipeline] }
+[8mha:AAAAaB+LCAAAAAAAAP9b85aBtbiIwTG/KF0vKzUvOzOvODlTryCnNB3I0ivPL8pOy8kv18vKT9JLzs8rzs9J1QuHCgaV5jlDhPzyS1IZIICRiYGhoohBKqM0pTg/D64Hh8ICAFt0h+h/AAAA[0m[Pipeline] // node
+[8mha:AAAAaB+LCAAAAAAAAP9b85aBtbiIwTG/KF0vKzUvOzOvODlTryCnNB3I0ivPL8pOy8kv18vKT9JLzs8rzs9J1QuHCgaV5jlDhPzyS1IZIICRiYGhoohBKqM0pTg/D64Hh8ICAFt0h+h/AAAA[0m[Pipeline] End of Pipeline
+Finished: SUCCESS

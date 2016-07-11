@@ -1,0 +1,14 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<org.jenkinsci.plugins.workflow.support.storage.SimpleXStreamFlowNodeStorage_-Tag plugin="workflow-support@2.1">
+  <node class="org.jenkinsci.plugins.workflow.graph.FlowStartNode" plugin="workflow-api@2.1">
+    <parentIds/>
+    <id>2</id>
+  </node>
+  <actions>
+    <org.jenkinsci.plugins.workflow.support.actions.WorkspaceActionImpl>
+      <node></node>
+      <path>/home/osboxes/github/jenkins-example/jenkins_home/jobs/pipeline_multibranch/branches/b1/workspace@script</path>
+      <labels class="sorted-set"/>
+    </org.jenkinsci.plugins.workflow.support.actions.WorkspaceActionImpl>
+  </actions>
+</org.jenkinsci.plugins.workflow.support.storage.SimpleXStreamFlowNodeStorage_-Tag>

@@ -1,0 +1,103 @@
+Started by user [8mha:AAAAlx+LCAAAAAAAAP9b85aBtbiIQTGjNKU4P08vOT+vOD8nVc83PyU1x6OyILUoJzMv2y+/JJUBAhiZGBgqihhk0NSjKDWzXb3RdlLBUSYGJk8GtpzUvPSSDB8G5tKinBIGIZ+sxLJE/ZzEvHT94JKizLx0a6BxUmjGOUNodHsLgAzWEgZu/dLi1CL9xJTczDwAj6GcLcAAAAA=[0madmin
+Setting origin to https://github.com/ciandcd/example_jenkins_multibranch.git
+Fetching origin...
+ > git rev-parse --is-inside-work-tree # timeout=10
+Fetching changes from the remote Git repository
+ > git config remote.origin.url https://github.com/ciandcd/example_jenkins_multibranch.git # timeout=10
+Fetching upstream changes from https://github.com/ciandcd/example_jenkins_multibranch.git
+ > git --version # timeout=10
+ > git -c core.askpass=true fetch --tags --progress https://github.com/ciandcd/example_jenkins_multibranch.git +refs/heads/*:refs/remotes/origin/*
+Checking out Revision 1c6fcd0a2ea1a1b1205aa08e330ae53063f062da (b1)
+ > git config core.sparsecheckout # timeout=10
+ > git checkout -f 1c6fcd0a2ea1a1b1205aa08e330ae53063f062da
+ > git rev-list 1c6fcd0a2ea1a1b1205aa08e330ae53063f062da # timeout=10
+[8mha:AAAAaB+LCAAAAAAAAP9b85aBtbiIwTG/KF0vKzUvOzOvODlTryCnNB3I0ivPL8pOy8kv18vKT9JLzs8rzs9J1QuHCgaV5jlDhPzyS1IZIICRiYGhoohBKqM0pTg/D64Hh8ICAFt0h+h/AAAA[0m[Pipeline] node
+Running on master in /home/osboxes/github/jenkins-example/jenkins_home/jobs/pipeline_multibranch/branches/b1/workspace
+[8mha:AAAAaB+LCAAAAAAAAP9b85aBtbiIwTG/KF0vKzUvOzOvODlTryCnNB3I0ivPL8pOy8kv18vKT9JLzs8rzs9J1QuHCgaV5jlDhPzyS1IZIICRiYGhoohBKqM0pTg/D64Hh8ICAFt0h+h/AAAA[0m[Pipeline] {
+[8mha:AAAAaB+LCAAAAAAAAP9b85aBtbiIwTG/KF0vKzUvOzOvODlTryCnNB3I0ivPL8pOy8kv18vKT9JLzs8rzs9J1QuHCgaV5jlDhPzyS1IZIICRiYGhoohBKqM0pTg/D64Hh8ICAFt0h+h/AAAA[0m[Pipeline] stage (Build and Test)
+Entering stage Build and Test
+Proceeding
+[8mha:AAAAaB+LCAAAAAAAAP9b85aBtbiIwTG/KF0vKzUvOzOvODlTryCnNB3I0ivPL8pOy8kv18vKT9JLzs8rzs9J1QuHCgaV5jlDhPzyS1IZIICRiYGhoohBKqM0pTg/D64Hh8ICAFt0h+h/AAAA[0m[Pipeline] tool
+[8mha:AAAAaB+LCAAAAAAAAP9b85aBtbiIwTG/KF0vKzUvOzOvODlTryCnNB3I0ivPL8pOy8kv18vKT9JLzs8rzs9J1QuHCgaV5jlDhPzyS1IZIICRiYGhoohBKqM0pTg/D64Hh8ICAFt0h+h/AAAA[0m[Pipeline] checkout
+ > git rev-parse --is-inside-work-tree # timeout=10
+Fetching changes from the remote Git repository
+ > git config remote.origin.url https://github.com/ciandcd/example_jenkins_multibranch.git # timeout=10
+Fetching upstream changes from https://github.com/ciandcd/example_jenkins_multibranch.git
+ > git --version # timeout=10
+ > git -c core.askpass=true fetch --tags --progress https://github.com/ciandcd/example_jenkins_multibranch.git +refs/heads/*:refs/remotes/origin/*
+Checking out Revision 1c6fcd0a2ea1a1b1205aa08e330ae53063f062da (b1)
+ > git config core.sparsecheckout # timeout=10
+ > git checkout -f 1c6fcd0a2ea1a1b1205aa08e330ae53063f062da
+[8mha:AAAAaB+LCAAAAAAAAP9b85aBtbiIwTG/KF0vKzUvOzOvODlTryCnNB3I0ivPL8pOy8kv18vKT9JLzs8rzs9J1QuHCgaV5jlDhPzyS1IZIICRiYGhoohBKqM0pTg/D64Hh8ICAFt0h+h/AAAA[0m[Pipeline] sh
+[workspace] Running shell script
++ mvn clean package
+[INFO] Scanning for projects...
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building simple-maven-project-with-tests 1.0-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-clean-plugin:2.5:clean (default-clean) @ simple-maven-project-with-tests ---
+[INFO] Deleting /home/osboxes/github/jenkins-example/jenkins_home/jobs/pipeline_multibranch/branches/b1/workspace/target
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ simple-maven-project-with-tests ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/osboxes/github/jenkins-example/jenkins_home/jobs/pipeline_multibranch/branches/b1/workspace/src/main/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.2:compile (default-compile) @ simple-maven-project-with-tests ---
+[INFO] No sources to compile
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ simple-maven-project-with-tests ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/osboxes/github/jenkins-example/jenkins_home/jobs/pipeline_multibranch/branches/b1/workspace/src/test/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.2:testCompile (default-testCompile) @ simple-maven-project-with-tests ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 3 source files to /home/osboxes/github/jenkins-example/jenkins_home/jobs/pipeline_multibranch/branches/b1/workspace/target/test-classes
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.18.1:test (default-test) @ simple-maven-project-with-tests ---
+[INFO] Surefire report directory: /home/osboxes/github/jenkins-example/jenkins_home/jobs/pipeline_multibranch/branches/b1/workspace/target/surefire-reports
+
+-------------------------------------------------------
+ T E S T S
+-------------------------------------------------------
+Running test.OtherTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.018 sec - in test.OtherTest
+Running test.SomeTest
+Tests run: 6, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec <<< FAILURE! - in test.SomeTest
+test5(test.SomeTest)  Time elapsed: 0.001 sec  <<< FAILURE!
+java.lang.AssertionError: oops
+	at org.junit.Assert.fail(Assert.java:88)
+	at test.Base.run(Base.java:11)
+	at test.SomeTest.test5(SomeTest.java:24)
+
+
+Results :
+
+Failed tests: 
+  SomeTest.test5:24->Base.run:11 oops
+
+Tests run: 7, Failures: 1, Errors: 0, Skipped: 0
+
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 7.573 s
+[INFO] Finished at: 2016-07-11T07:30:00+01:00
+[INFO] Final Memory: 13M/32M
+[INFO] ------------------------------------------------------------------------
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-surefire-plugin:2.18.1:test (default-test) on project simple-maven-project-with-tests: There are test failures.
+[ERROR] 
+[ERROR] Please refer to /home/osboxes/github/jenkins-example/jenkins_home/jobs/pipeline_multibranch/branches/b1/workspace/target/surefire-reports for the individual test results.
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException
+[8mha:AAAAaB+LCAAAAAAAAP9b85aBtbiIwTG/KF0vKzUvOzOvODlTryCnNB3I0ivPL8pOy8kv18vKT9JLzs8rzs9J1QuHCgaV5jlDhPzyS1IZIICRiYGhoohBKqM0pTg/D64Hh8ICAFt0h+h/AAAA[0m[Pipeline] }
+[8mha:AAAAaB+LCAAAAAAAAP9b85aBtbiIwTG/KF0vKzUvOzOvODlTryCnNB3I0ivPL8pOy8kv18vKT9JLzs8rzs9J1QuHCgaV5jlDhPzyS1IZIICRiYGhoohBKqM0pTg/D64Hh8ICAFt0h+h/AAAA[0m[Pipeline] // node
+[8mha:AAAAaB+LCAAAAAAAAP9b85aBtbiIwTG/KF0vKzUvOzOvODlTryCnNB3I0ivPL8pOy8kv18vKT9JLzs8rzs9J1QuHCgaV5jlDhPzyS1IZIICRiYGhoohBKqM0pTg/D64Hh8ICAFt0h+h/AAAA[0m[Pipeline] End of Pipeline
+ERROR: script returned exit code 1
+[8mha:AAAAWB+LCAAAAAAAAP9b85aBtbiIQSmjNKU4P08vOT+vOD8nVc8DzHWtSE4tKMnMz/PLL0ldFVf2c+b/lb5MDAwVRQxSaBqcITRIIQMEMIIUFgAAckCEiWAAAAA=[0mFinished: FAILURE
