@@ -1,0 +1,22 @@
+Manifest-Version: 1.0
+Archiver-Version: Plexus Archiver
+Created-By: Apache Maven
+Built-By: nicolas
+Build-Jdk: 1.8.0_74
+Extension-Name: docker-custom-build-environment
+Implementation-Title: docker-custom-build-environment
+Implementation-Version: 1.6.5
+Plugin-Class: com.cloudbees.jenkins.plugins.docker_build_env.DockerCus
+ tomBuildEnvironmentPlugin
+Group-Id: com.cloudbees.jenkins.plugins
+Short-Name: docker-custom-build-environment
+Long-Name: CloudBees Docker Custom Build Environment Plugin
+Url: https://wiki.jenkins-ci.org/display/JENKINS/CloudBees+Docker+Cust
+ om+Build+Environment+Plugin
+Plugin-Version: 1.6.5
+Hudson-Version: 1.609
+Jenkins-Version: 1.609
+Plugin-Dependencies: docker-commons:1.0,maven-plugin:2.12;resolution:=
+ optional,dockerhub-notification:1.0;resolution:=optional
+Plugin-Developers: :ndeloof:nicolas.deloof@gmail.com
+

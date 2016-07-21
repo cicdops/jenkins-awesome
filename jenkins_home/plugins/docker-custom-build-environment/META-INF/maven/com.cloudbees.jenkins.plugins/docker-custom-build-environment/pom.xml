@@ -1,0 +1,85 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <groupId>org.jenkins-ci.plugins</groupId>
+    <artifactId>plugin</artifactId>
+    <version>1.609</version>
+  </parent>
+
+  <groupId>com.cloudbees.jenkins.plugins</groupId>
+  <artifactId>docker-custom-build-environment</artifactId>
+  <name>CloudBees Docker Custom Build Environment Plugin</name>
+  <version>1.6.5</version>
+  <packaging>hpi</packaging>
+  <url>https://wiki.jenkins-ci.org/display/JENKINS/CloudBees+Docker+Custom+Build+Environment+Plugin</url>
+
+  <licenses>
+    <license>
+      <name>MIT</name>
+    </license>
+  </licenses>
+
+  <developers>
+      <developer>
+          <id>ndeloof</id>
+          <email>nicolas.deloof@gmail.com</email>
+          <organization>CloudBees</organization>
+          <timezone>UTC+1</timezone>
+      </developer>
+  </developers>
+
+  <dependencies>
+      <dependency>
+          <groupId>org.jenkins-ci.plugins</groupId>
+          <artifactId>docker-commons</artifactId>
+          <version>1.0</version>
+      </dependency>
+      <dependency>
+          <groupId>org.jenkins-ci.main</groupId>
+          <artifactId>maven-plugin</artifactId>
+          <version>2.12</version>
+          <optional>true</optional>
+      </dependency>
+      <dependency>
+          <groupId>org.jenkins-ci.plugins</groupId>
+          <artifactId>dockerhub-notification</artifactId>
+          <version>1.0</version>
+          <optional>true</optional>
+      </dependency>
+  </dependencies>
+
+
+
+    <!-- get every artifact through repo.jenkins-ci.org, which proxies all the artifacts that we need -->
+  <repositories>
+    <repository>
+      <id>repo.jenkins-ci.org</id>
+      <url>http://repo.jenkins-ci.org/public/</url>
+    </repository>
+  </repositories>
+
+  <pluginRepositories>
+    <pluginRepository>
+      <id>repo.jenkins-ci.org</id>
+      <url>http://repo.jenkins-ci.org/public/</url>
+    </pluginRepository>
+  </pluginRepositories>
+
+  <scm>
+    <url>https://github.com/jenkinsci/docker-custom-build-environment-plugin</url>
+    <connection>scm:git:https://github.com/jenkinsci/docker-custom-build-environment-plugin.git</connection>
+    <developerConnection>scm:git:git@github.com:jenkinsci/docker-custom-build-environment-plugin.git</developerConnection>
+    <tag>docker-custom-build-environment-1.6.5</tag>
+  </scm>
+
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-release-plugin</artifactId>
+        <version>2.5</version>
+      </plugin>
+    </plugins>
+  </build>
+
+</project>
