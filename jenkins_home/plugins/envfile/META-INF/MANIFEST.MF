@@ -1,0 +1,17 @@
+Manifest-Version: 1.0
+Archiver-Version: Plexus Archiver
+Created-By: Apache Maven
+Built-By: mindless
+Build-Jdk: 1.6.0_26
+Extension-Name: envfile
+Implementation-Title: envfile
+Implementation-Version: 1.2
+Group-Id: org.jenkins-ci.plugins
+Short-Name: envfile
+Long-Name: Jenkins Environment File Plugin
+Url: https://wiki.jenkins-ci.org/display/JENKINS/Envfile+Plugin
+Plugin-Version: 1.2
+Hudson-Version: 1.403
+Jenkins-Version: 1.403
+Plugin-Developers: Anders Johansson:ajoajoajo:ajoajoajo@gmail.com
+

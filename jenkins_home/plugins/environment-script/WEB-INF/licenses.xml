@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<l:dependencies xmlns:l='licenses' groupId='com.lookout.jenkins' artifactId='environment-script' version='1.2.3'><l:dependency name='Environment Script Plugin' groupId='com.lookout.jenkins' artifactId='environment-script' version='1.2.3' url='http://wiki.jenkins-ci.org/display/JENKINS/Environment+Script+Plugin'><l:description/></l:dependency></l:dependencies>

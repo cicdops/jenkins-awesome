@@ -1,0 +1,20 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<flow-definition plugin="workflow-job@2.3">
+  <actions/>
+  <description></description>
+  <keepDependencies>false</keepDependencies>
+  <properties/>
+  <definition class="org.jenkinsci.plugins.workflow.cps.CpsFlowDefinition" plugin="workflow-cps@2.6">
+    <script>node {
+  git url: &apos;https://github.com/jglick/simple-maven-project-with-tests.git&apos;
+  def mvnHome = tool &apos;M3&apos;
+  sh &quot;${mvnHome}/bin/mvn -B -Dmaven.test.failure.ignore verify&quot;
+  input &apos;save artifacts and unit results?&apos;
+  // rest as before
+  step([$class: &apos;ArtifactArchiver&apos;, artifacts: &apos;**/target/*.jar&apos;, fingerprint: true])
+  step([$class: &apos;JUnitResultArchiver&apos;, testResults: &apos;**/target/surefire-reports/TEST-*.xml&apos;])
+}</script>
+    <sandbox>true</sandbox>
+  </definition>
+  <triggers/>
+</flow-definition>

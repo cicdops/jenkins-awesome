@@ -1,0 +1,18 @@
+Manifest-Version: 1.0
+Archiver-Version: Plexus Archiver
+Created-By: Apache Maven
+Built-By: sbrausch
+Build-Jdk: 1.7.0_79
+Extension-Name: build-environment
+Implementation-Title: build-environment
+Implementation-Version: 1.6
+Group-Id: org.jenkins-ci.plugins
+Short-Name: build-environment
+Long-Name: Build Environment Plugin
+Url: http://wiki.jenkins-ci.org/display/JENKINS/Build+Environment+Plugin
+Plugin-Version: 1.6
+Hudson-Version: 1.509.4
+Jenkins-Version: 1.509.4
+Plugin-Developers: Stefan Brausch:stefanbrausch:stefan.brausch@1und1.d
+ e,Yordan Boev:boev:iordan.boev@gmail.com
+
