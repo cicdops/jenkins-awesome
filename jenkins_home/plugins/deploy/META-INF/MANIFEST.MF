@@ -1,0 +1,19 @@
+Manifest-Version: 1.0
+Archiver-Version: Plexus Archiver
+Created-By: Apache Maven
+Built-By: kohsuke
+Build-Jdk: 1.6.0_26
+Extension-Name: deploy
+Implementation-Title: deploy
+Implementation-Version: 1.10
+Group-Id: org.jenkins-ci.plugins
+Short-Name: deploy
+Long-Name: Deploy to container Plugin
+Url: http://wiki.jenkins-ci.org/display/JENKINS/Deploy+Plugin
+Plugin-Version: 1.10
+Hudson-Version: 1.532
+Jenkins-Version: 1.532
+Plugin-Developers: Kohsuke Kawaguchi:kohsuke:,Meikel Bode:edobm:,Danie
+ l Barth:devkiela:,Leandro Kersting de Freitas:leandro-freitas-softdev
+ elop:
+
