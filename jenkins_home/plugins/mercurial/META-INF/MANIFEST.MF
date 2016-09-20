@@ -1,0 +1,24 @@
+Manifest-Version: 1.0
+Archiver-Version: Plexus Archiver
+Created-By: Apache Maven
+Built-By: jglick
+Build-Jdk: 1.8.0_92
+Extension-Name: mercurial
+Specification-Title: Allows Jenkins to check out projects from the Mer
+ curial SCM.
+Implementation-Title: mercurial
+Implementation-Version: 1.56
+Group-Id: org.jenkins-ci.plugins
+Short-Name: mercurial
+Long-Name: Jenkins Mercurial plugin
+Url: http://wiki.jenkins-ci.org/display/JENKINS/Mercurial+Plugin
+Plugin-Version: 1.56
+Hudson-Version: 1.642.3
+Jenkins-Version: 1.642.3
+Plugin-Dependencies: ssh-credentials:1.6,multiple-scms:0.4-beta-1;reso
+ lution:=optional,credentials:1.9.4,scm-api:1.1,matrix-project:1.2
+Plugin-Developers: Jesse Glick:jglick:jglick@cloudbees.com,Mirko Fried
+ enhagen:mfriedenhagen:mfriedenhagen@gmail.com,Kohsuke Kawaguchi:kohsu
+ ke:kk@kohsuke.org,David M. Carr:davidmc24:david@carrclan.us,Willem Ve
+ rstraeten:willemv:willem.verstraeten@gmail.com
+
