@@ -21,7 +21,7 @@
 
     <properties>
         <jenkins.version>1.609.3</jenkins.version>
-        <workflow.version>1.14</workflow.version>
+        <workflow.version>707.v71c3f0a_6ccdb_</workflow.version>
     </properties>
 
     <scm>
