@@ -40,7 +40,7 @@
     <packaging>hpi</packaging>
 
     <properties>
-        <jackson.version>2.4.0</jackson.version>
+        <jackson.version>2.12.6.1</jackson.version>
     </properties>
 
     <dependencies>
