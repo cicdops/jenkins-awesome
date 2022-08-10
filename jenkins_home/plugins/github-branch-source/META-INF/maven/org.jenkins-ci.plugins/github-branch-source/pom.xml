@@ -39,7 +39,7 @@
         <dependency>
             <groupId>org.jenkins-ci.plugins</groupId>
             <artifactId>git</artifactId>
-            <version>2.3</version>
+            <version>4.11.4</version>
             <exclusions>
                 <!-- To avoid ClassNotFoundException during InjectedTest -->
                 <exclusion>
