@@ -136,7 +136,7 @@
         <dependency>
             <groupId>org.jenkins-ci.plugins</groupId>
             <artifactId>pipeline-input-step</artifactId>
-            <version>2.0</version>
+            <version>449.v77f0e8b_845c4</version>
             <scope>test</scope>
         </dependency>
         <dependency>
